@@ -1,72 +1,76 @@
 #include<iostream>
+#include<string>
 using namespace std;
-struct employee
-{
+
+struct employee {
     int id;
-    char name[15];
-    char qual[10];
-    float exp;
-    long long int cont;
+    char Name[20];
+    char qualification[100];
+    float expirance;
+    long long int contect_num;
 
     void getdata()
     {
-        cout<<"Enter an Employee ID: ";
         cin>>id;
-        cout<<"Employee Name: ";
-        cin>>name;
-        cout<<"Qualification: ";
-        cin>>qual;
-        cout<<"Experience: ";
-        cin>>exp;
-        cout<<"Contact Number: ";
-        cin>>cont;
+        cin>>Name;
+        cin>>qualification;
+        cin>>expirance>>contect_num;
     }
-}e;
-int main()
-{
-    cout<<"23CE037 "<<"ADITYA_GOHEL"<<endl;
-    cout<<endl;
-    struct employee E1;
-    E1.getdata();
-    char a;
-    cout<<endl;
-    cout<<"Enter an Employee ID: "<<E1.id<<endl;
-    cout<<"---------------------------"<<endl;
-    cout<<"Employee Name       : "<<E1.name<<endl;
-    cout<<"Qualification       : "<<E1.qual<<endl;
-    cout<<"Experience          : "<<E1.exp<<endl;
-    cout<<"Contact Number      : "<<E1.cont<<endl;
-    cout<<"---------------------------"<<endl;
-    again: cout<<"Press Y to get another Employee Details,Press N to exit:";
-    cin>>a;
-    if(a=='Y'||a=='y')
+    void putdata()
     {
-        cout<<"Enter an Employee ID: ";
-        cin>>e.id;
-        if(e.id>=1000 && e.id<=9999)
-        {
-        cout<<"Employee Name: ";
-        cin>>e.name;
-        cout<<"Qualification: ";
-        cin>>e.qual;
-        cout<<"Experience: ";
-        cin>>e.exp;
-        cout<<"Contact Number: ";
-        cin>>e.cont;
-        cout<<"---------------------------"<<endl;
-        }
-        else
-        {
-        cout<<"**************************"<<endl;
-        cout<<"ERROR:ENTERED EMPLOYEE ID DOES NOT EXIST"<<endl;
-        cout<<"**************************"<<endl;
-        }
+        cout<<id<<endl<<Name<<endl<<qualification<<endl<<expirance<<endl<<contect_num<<endl;
     }
-    else
-    {
-        exit(0);
 
+}e1;
+int main(){
+    char ch;
+    cout<<"enter data like (id,name,qualification,expirance,contect_num) in sequence"<<endl;
+
+   e1.getdata();
+   e1.putdata();
+   cout<<endl<<"enter employee ID     :";
+   cout<<e1.id;
+   cout<<endl<<"---------------------------------";
+   cout<<endl<<"enter employee name   :";
+   cout<<e1.Name;
+   cout<<endl<<"qualification         :";
+   cout<<e1.qualification;
+   cout<<endl<<"expirance             :";
+   cout<<e1.expirance;
+   cout<<endl<<"contect numder        :";
+   cout<<e1.contect_num;
+   cout<<endl<<"---------------------------------";
+   label:
+   cout<<endl<<"enter 'Y' for another employee detail or 'N' for exit"<<endl;
+   cin>>ch;
+
+   if(ch=='y'||ch=='Y')
+   {
+       cout<<endl<<"enter employee ID";
+       cin>>e1.id;
+       cout<<endl<<"**********************************"<<endl;
+
+        if(e1.id>99 && e1.id<=999){
+
+        cout<<"enter data like (id,name,qualification,expirance,contect_num) in sequence"<<endl;
+        e1.getdata();
+
+   }
+   else{
+    cout<<endl<<"ENTERED EMPLOYEE ID DOSE NOT EXIST";
+    cout<<endl<<"**********************************"<<endl;
+
+    return 0;
+   }
     }
-    goto again;
+   else if(ch=='n'||ch=='N'){
+        cout<<endl<<"exit";
+        return 0;
+   }
+
+   goto label;
+
+    return 0;
+
 
 }
